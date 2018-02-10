@@ -36,9 +36,6 @@ public class Bitflyer4jImpl implements Bitflyer4j {
     @Getter
     private final OrderService orderService;
 
-    @Getter
-    private final RealtimeService realtimeService;
-
     @Inject
     public Bitflyer4jImpl(Injector i) {
 
@@ -52,16 +49,12 @@ public class Bitflyer4jImpl implements Bitflyer4j {
 
         orderService = injector.getInstance(OrderService.class);
 
-        realtimeService = injector.getInstance(RealtimeService.class);
-
         log.info("Initialized : {} - {}", getVersion(), getSite());
 
     }
 
     @Override
     public void close() throws Exception {
-
-        injector.getInstance(PubNub.class).destroy();
 
         injector.getInstance(ExecutorFactory.class).shutdown();
 

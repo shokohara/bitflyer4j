@@ -23,6 +23,4 @@ public interface Bitflyer4j extends AutoCloseable {
 
     OrderService getOrderService();
 
-    RealtimeService getRealtimeService();
-
 }
